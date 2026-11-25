@@ -26,7 +26,7 @@ Unreal Engine 5와 C++로 제작한 쿼터뷰 보스전 데모입니다.
 
 ## 4. 주요 구현
 
-[BossCharacter 상태 전환 흐름](bosscharacterfsm.svg)
+![보스 상태 전환 흐름도](./bosscharacterfsm.svg)
 
 ### 4.1. 보스 상태 전환과 공격 패턴
 
