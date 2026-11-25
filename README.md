@@ -15,7 +15,7 @@ Unreal Engine 5와 C++로 제작한 쿼터뷰 보스전 데모입니다.
 
 ## 2. 플레이 영상
 
-[플레이 영상 보기](영상_URL)
+[플레이 영상 보기](https://youtu.be/_4XAWUAklpM)
 
 ## 3. 조작 방법
 
