@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="870" viewBox="0 0 1400 870"><title>보스 전투 상태 전환</title><defs><marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#586e82"/></marker></defs><rect width="1400" height="870" fill="#fff"/><g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<text x="700" y="42" text-anchor="middle" font-size="29" fill="#20354a">보스 전투 상태 전환</text>
+<rect x="45" y="110" width="200" height="70" rx="10" fill="#e4effb" stroke="#8193a5"/>
+<text x="145" y="140" text-anchor="middle" font-size="22" fill="#20354a">Idle</text>
+<text x="145" y="164" text-anchor="middle" font-size="15" fill="#44556a">추적 · 사거리 확인</text>
+<rect x="720" y="110" width="255" height="70" rx="10" fill="#e4effb" stroke="#8193a5"/>
+<text x="847.5" y="140" text-anchor="middle" font-size="22" fill="#20354a">평타 2연타 · Basic</text>
+<text x="847.5" y="164" text-anchor="middle" font-size="15" fill="#44556a">준비·판정 × 2 → 후딜</text>
+<rect x="720" y="255" width="255" height="70" rx="10" fill="#e4effb" stroke="#8193a5"/>
+<text x="847.5" y="285" text-anchor="middle" font-size="22" fill="#20354a">강공격 · Heavy</text>
+<text x="847.5" y="309" text-anchor="middle" font-size="15" fill="#44556a">준비 → 판정 → 후딜</text>
+<rect x="1100" y="255" width="250" height="70" rx="10" fill="#e4effb" stroke="#8193a5"/>
+<text x="1225" y="285" text-anchor="middle" font-size="22" fill="#20354a">부채꼴 · Cone</text>
+<text x="1225" y="309" text-anchor="middle" font-size="15" fill="#44556a">준비 → 판정 → 후딜</text>
+<path d="M245 145H720" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="480" y="115" text-anchor="middle" font-size="16" fill="#20354a">사거리 안 · 강공격 예약 없음</text>
+<text x="480" y="135" text-anchor="middle" font-size="14" fill="#555f72">AttackRange / !bHeavyAttackPending</text>
+<path d="M847 110V73H145V110" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="495" y="67" text-anchor="middle" font-size="15" fill="#20354a">평타 후딜 종료 · bHeavyAttackPending = true</text>
+<path d="M145 180V290H720" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="446" y="255" text-anchor="middle" font-size="16" fill="#20354a">사거리 안 · 예약된 강공격 시작</text>
+<text x="446" y="275" text-anchor="middle" font-size="14" fill="#555f72">AttackRange / bHeavyAttackPending</text>
+<path d="M975 290H1100" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="1038" y="253" text-anchor="middle" font-size="16" fill="#20354a">후딜 종료</text>
+<text x="1038" y="273" text-anchor="middle" font-size="14" fill="#555f72">FinishAttack()</text>
+<path d="M1225 325V370H65V180" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="650" y="343" text-anchor="middle" font-size="16" fill="#20354a">부채꼴 후딜 종료 · 추적 재개</text>
+<text x="650" y="363" text-anchor="middle" font-size="14" fill="#555f72">AttackState = Idle</text>
+<path d="M45 398H1350" stroke="#ccd6df"/>
+<text x="700" y="429" text-anchor="middle" font-size="18" fill="#20354a">공세가 가득 차면 진행 중인 공격을 중단하고 아래로 분기</text>
+<rect x="45" y="525" width="220" height="70" rx="10" fill="#fff0cf" stroke="#8193a5"/>
+<text x="155" y="555" text-anchor="middle" font-size="22" fill="#20354a">공세 100 도달</text>
+<text x="155" y="579" text-anchor="middle" font-size="15" fill="#44556a">StartStagger()</text>
+<rect x="653" y="465" width="332" height="70" rx="10" fill="#fff0cf" stroke="#8193a5"/>
+<text x="819" y="495" text-anchor="middle" font-size="22" fill="#20354a">Staggered</text>
+<text x="819" y="519" text-anchor="middle" font-size="15" fill="#44556a">3번째마다 스킬 개방 · bSkillReady</text>
+<rect x="653" y="631" width="332" height="70" rx="10" fill="#fff0cf" stroke="#8193a5"/>
+<text x="819" y="661" text-anchor="middle" font-size="22" fill="#20354a">ExecutionReady</text>
+<text x="819" y="685" text-anchor="middle" font-size="15" fill="#44556a">처형 대기</text>
+<rect x="1125" y="465" width="225" height="70" rx="10" fill="#e4effb" stroke="#8193a5"/>
+<text x="1237.5" y="495" text-anchor="middle" font-size="22" fill="#20354a">Idle</text>
+<text x="1237.5" y="519" text-anchor="middle" font-size="15" fill="#44556a">추적 재개</text>
+<rect x="1125" y="631" width="225" height="70" rx="10" fill="#f1e2e6" stroke="#8193a5"/>
+<text x="1237.5" y="661" text-anchor="middle" font-size="22" fill="#20354a">Dead</text>
+<text x="1237.5" y="685" text-anchor="middle" font-size="15" fill="#44556a">보스 사망</text>
+<path d="M265 552H312V500H653" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="479" y="465" text-anchor="middle" font-size="16" fill="#20354a">진입 시 보스 HP 25% 이상</text>
+<text x="479" y="485" text-anchor="middle" font-size="14" fill="#555f72">CurrentHealth ≥ MaxHealth × ExecutionHealthRatio</text>
+<path d="M265 568H312V666H653" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="479" y="631" text-anchor="middle" font-size="16" fill="#20354a">진입 시 보스 HP 25% 미만</text>
+<text x="479" y="651" text-anchor="middle" font-size="14" fill="#555f72">CurrentHealth &lt; MaxHealth × ExecutionHealthRatio</text>
+<path d="M985 500H1125" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="1054" y="461" text-anchor="middle" font-size="16" fill="#20354a">5초 경과</text>
+<text x="1054" y="481" text-anchor="middle" font-size="14" fill="#555f72">FinishStagger()</text>
+<path d="M985 520H1048V605H1237V631" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="1177" y="572" text-anchor="middle" font-size="16" fill="#20354a">피격으로 HP 0</text>
+<text x="1177" y="592" text-anchor="middle" font-size="14" fill="#555f72">CurrentHealth ≤ 0</text>
+<path d="M985 666H1125" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="1054" y="631" text-anchor="middle" font-size="16" fill="#20354a">처형 적중</text>
+<text x="1054" y="651" text-anchor="middle" font-size="14" fill="#555f72">Execute()</text>
+<rect x="45" y="765" width="220" height="70" rx="10" fill="#f1e2e6" stroke="#8193a5"/>
+<text x="155" y="795" text-anchor="middle" font-size="22" fill="#20354a">플레이어 사망</text>
+<text x="155" y="819" text-anchor="middle" font-size="15" fill="#44556a">Die()</text>
+<rect x="653" y="765" width="332" height="70" rx="10" fill="#f1e2e6" stroke="#8193a5"/>
+<text x="819" y="795" text-anchor="middle" font-size="22" fill="#20354a">Inactive</text>
+<text x="819" y="819" text-anchor="middle" font-size="15" fill="#44556a">생존한 보스의 전투 정지</text>
+<path d="M265 800H653" fill="none" stroke="#586e82" stroke-width="2" marker-end="url(#tip)"/>
+<text x="460" y="768" text-anchor="middle" font-size="16" fill="#20354a">플레이어 사망 시 보스 정지</text>
+<text x="460" y="788" text-anchor="middle" font-size="14" fill="#555f72">Boss → StopCombat()</text>
+</g></svg>
